@@ -1,0 +1,42 @@
+body{
+    margin: auto;
+}
+header, nav, section, footer{
+    display: block;
+}
+header{
+    margin: auto auto;
+    background-color: #00468F;
+    text-align: center;
+}  
+.navi{
+    font-size: 17px;
+    text-align: right;
+    border: 1px solid black;
+    background-color: gray;
+ 
+    
+}
+.navi li{
+    list-style: none;
+     display: inline-block;
+     padding: 10px 40px;
+     
+    
+}
+section{
+    float: inline-end;
+    margin: 30px 30px;
+    padding: 20px 80px;
+    border: 1px solid black;
+    background-color: lightgray;
+    /* text-align: center;*/
+    border-radius: 20px;
+}
+.table{
+    margin: auto;
+    text-align: center;
+}
+footer{
+    text-align: center;
+}

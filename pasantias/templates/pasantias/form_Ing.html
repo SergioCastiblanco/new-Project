@@ -1,0 +1,48 @@
+{% extends "pasantias/base.html" %} {% load static %} {% block titulo %}Ingresar
+P{% endblock %} {% block estilo %}<link
+  rel="stylesheet"
+  href="{% static 'pasantias/css/estiloIng.css' %}"
+/>{% endblock %} {% block contenido %}
+<nav class="navi">
+  <ul>
+    <li>
+      <button type="button" class="btn btn-secondary">
+        <a href="{% url 'pasantias:index' %}">Volver</a>
+      </button>
+    </li>
+  </ul>
+</nav>
+<section
+  class="shadow-lg p-3 mb-5 bg-white rounded"
+  class="p-3 mb-2 bg-light text-dark"
+>
+  <form action="{% url 'pasantias:post_Ing' %}" method="post">
+    {% csrf_token %}
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01"
+          >Tipo de usuario</label
+        >
+      </div>
+      <select class="custom-select" id="inputGroupSelect01" name="is_superuser">
+        <option value="">Estudiante</option>
+        <option value="1">Administrador</option>
+      </select>
+    </div>
+    <br />
+    <br />
+    <div>
+      <label>Codigo:</label>
+      <input type="text" name="username" />
+      <br /><br />
+      <label>Contraseña:</label>
+      <input type="password" name="password" />
+      <br /><br />
+      <input type="submit" value="Enviar" />
+    </div>
+  </form>
+</section>
+<footer>
+  <p>Universidad Santo Tomás derechos reservados.</p>
+</footer>
+{% endblock %}

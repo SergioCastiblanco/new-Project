@@ -1,0 +1,76 @@
+{% extends "pasantias/base.html" %}
+{% load static %}
+{% block titulo %}Usta Pasantias{% endblock %}    
+{% block estilo %}<link rel="stylesheet" href="{% static 'pasantias/css/estilo.css' %}">{% endblock %}
+{% block contenido %}
+<nav class="navi" >
+  <ul>
+      <li>
+        <button type="button" class="btn btn-secondary">
+          <a href="{% url 'pasantias:form_Ing' %}" >Ingresar</a>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="btn btn-secondary">
+          <a href="{% url 'pasantias:form_Reg' %}">Registrarse</a>
+        </button>
+      </li>
+  </ul>
+</nav>
+<div>
+<section>
+  <article >
+      <h3>Cómo solicitar tu pasantía</h1>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolores assumenda quos. Totam illo, commodi consequatur eligendi esse aliquam quasi cum saepe voluptatibus veritatis quaerat nisi at similique qui dolor culpa eius cumque dolorem voluptates molestiae pariatur consectetur explicabo. Fuga eligendi consequuntur, totam autem rerum voluptatibus numquam repudiandae aperiam maxime obcaecati, quae, eum cupiditate deleniti quidem accusamus quam labore nulla!
+              </p>
+      <ol>
+          <li>paso</li>
+          <li>paso</li>
+          <li>paso</li>
+          <li>paso</li>
+      </ol>
+  </article>
+</section>
+<br>
+<section>
+  <article class="artic2">
+      <h3>
+          Empresas Disponibles para hacer tu pasantía
+      </h3>
+      <br>
+      <table class="table">
+        <thead class="thead-dark">
+            <tr>
+              <th scope="col">Empresa</th>
+              <th scope="col">Facultad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul class="list-group list-group-flush">
+                  {% for c in lista_empresas  %}
+                  <li class="list-group-item">{{ c.nombre }}</li>
+                  {% endfor %}
+                </ul>
+              </td>
+              <td>
+                <ul class="list-group list-group-flush">
+                  {% for c in lista_empresas  %}
+                  <li class="list-group-item">{{ c.facultad }}</li>
+                  {% endfor %}
+                  </ul>
+              </td>
+            </tr> 
+          </tbody>
+        </table>
+  </article>
+</section>
+</div>
+
+<footer>
+  <p>Universidad Santo Tomás derechos reservados.</p>
+</footer>
+{% endblock %}
+       

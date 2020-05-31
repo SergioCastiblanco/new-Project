@@ -1,0 +1,109 @@
+{% extends "pasantias/base.html" %} {% load static %} {% block titulo %}Est
+Pasantías{% endblock %} {% block estilo %}<link
+  rel="stylesheet"
+  href="{% static 'pasantias/css/estiloEst.css' %}"
+/>{% endblock %} {% block contenido %}
+<nav class="navi">
+  <ul>
+    <li class="nav-item">
+      <h5>{{ request.user.first_name }} {{ request.user.last_name }}</h5>
+    </li>
+    <li>
+      <button type="button" class="btn btn-secondary">
+        <a href="{% url 'pasantias:view_logout' %}">Salir</a>
+      </button>
+    </li>
+  </ul>
+</nav>
+<section>
+  <article class="artic2">
+    <h3>
+      Empresas Disponibles para hacer tu pasantía
+    </h3>
+    <br />
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Empresa</th>
+          <th scope="col">Facultad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <ul class="list-group list-group-flush">
+              {% for c in lista_empresas %}
+              <li class="list-group-item">{{ c.nombre }}</li>
+              {% endfor %}
+            </ul>
+          </td>
+          <td>
+            <ul class="list-group list-group-flush">
+              {% for c in lista_empresas %}
+              <li class="list-group-item">{{ c.facultad }}</li>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</section>
+<section>
+  <h3>Solicitar Pasantía</h3>
+  <br />
+  <form action="{% url 'pasantias:post_crea_solicitud' %}" method="post">
+    {% csrf_token %}
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01"
+          >Seleccione la Empresa</label
+        >
+      </div>
+      <select class="custom-select" id="inputGroupSelect01" name="empresa_id">
+        <option selected>Choose...</option>
+        {% for c in lista_empresas %}
+        <option value="{{ c.id }}">{{ c.nombre }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <br />
+    <input type="submit" value="Enviar" />
+  </form>
+</section>
+<section>
+  <h3>Tu solicitud:</h3>
+  <br />
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Empresa</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <ul class="list-group list-group-flush">
+            {% for c in lista_solicitudes %} 
+            {% if request.user.id == c.usuario_id %}
+            <li class="list-group-item">{{ c.empresa.nombre }}</li>
+            {% endif %} {% endfor %}
+          </ul>
+        </td>
+        <td>
+          <ul class="list-group list-group-flush">
+            {% for c in lista_solicitudes %} 
+            {% if request.user.id == c.usuario_id %}
+            <li class="list-group-item">{{ c.estado }}</li>
+            {% endif %} {% endfor %}
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<footer>
+  <p>Universidad Santo Tomás derechos reservados.</p>
+</footer>
+{% endblock %}

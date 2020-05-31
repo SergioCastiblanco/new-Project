@@ -1,0 +1,62 @@
+{% extends "pasantias/base.html" %} {% load static %} {% block titulo %}Registro
+P{% endblock %} {% block estilo %}<link
+  rel="stylesheet"
+  href="{% static 'pasantias/css/estiloReg.css' %}"
+/>{% endblock %} {% block contenido %}
+<nav class="navi">
+  <ul>
+    <li>
+      <button type="button" class="btn btn-secondary">
+        <a href="{% url 'pasantias:index' %}">Volver</a>
+      </button>
+    </li>
+  </ul>
+</nav>
+<section
+  class="shadow-lg p-3 mb-5 bg-white rounded"
+  class="p-3 mb-2 bg-light text-dark"
+>
+  <form action="{% url 'pasantias:post_Reg' %}" method="post">
+    {% csrf_token %}
+    <h5>Seleccione el tipo de usuario</h5>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-secondary">
+        <input type="radio" name="is_superuser" value="" checked /> Estudiante
+      </label>
+      <label class="btn btn-secondary">
+        <input type="radio" name="is_superuser" value="1" /> Administrador
+      </label>
+    </div>
+    <br /><br />
+    <span>Nombre:</span>
+    <input
+      type="text"
+      name="first_name"
+      placeholder="Escriba su nombre"
+      size="50"
+    />
+    <br /><br />
+    <span>Apellido:</span>
+    <input
+      type="text"
+      name="last_name"
+      placeholder="Escriba su apellido"
+      size="50"
+    />
+    <br /><br />
+    <span>Correo Institucional:</span>
+    <input type="text" name="email" placeholder="Escriba su correo" size="50" />
+    <br /><br />
+    <label>Codigo:</label>
+    <input type="text" name="username" />
+    <br /><br />
+    <label>Contraseña:</label>
+    <input type="password" name="password" />
+    <br /><br />
+    <input type="submit" value="Submit" />
+  </form>
+</section>
+<footer>
+  <p>Universidad Santo Tomás derechos reservados.</p>
+</footer>
+{% endblock %}

@@ -1,0 +1,67 @@
+
+body{
+    margin: auto;
+    
+}
+header, nav, section, footer{
+    display: block;
+}
+header{
+    margin: auto auto;
+    background-color: #00468F;
+}
+h1{
+font-size: 15px;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+text-align: center;
+}
+.cabecera{
+   align-self: center;
+}
+button{
+    background-color: lightgray;
+    font-style: none;
+}
+.navi{
+   font-size: 17px;
+   text-align: right;
+   border: 1px solid black;
+   background-color: gray;
+   border-radius: 1px;
+
+}
+
+.navi li{
+    list-style: none;
+    display: inline-block;
+    padding: 10px 15px;
+
+}
+article{
+    padding: 20px 80px;
+    border-radius: 20px;
+    border: 1px solid black;
+    background-color: lightgray;
+    text-align: justify;
+    }
+
+
+
+
+.artic2{
+    text-align: center;
+    
+}
+.arctic2 li{
+    list-style: none;
+}
+div {
+    float: inline-end;
+    margin: 30px 30px;
+    
+    
+}
+header, footer{
+    text-align: center;
+    
+}

@@ -1,0 +1,37 @@
+body{
+    margin: auto;
+    
+    
+}
+header, nav, section, footer{
+    display: block;
+}
+header{
+    margin: auto auto;
+    background-color: #00468F;
+    text-align: center;
+}
+.cabecera{
+   align-self: center;
+}
+.navi{
+    background-color: gray;
+    border: 1px solid black;
+    text-align: right;
+}
+.navi li{
+    list-style: none;
+     display: inline-block;
+     padding: 10px 40px;
+}
+section{
+        border: 1px solid black;
+        padding: 20px;
+        
+        background-color: lightslategray;
+        text-align: center;
+        
+}
+footer{
+    text-align: center;
+}
